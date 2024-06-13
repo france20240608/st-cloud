@@ -7,17 +7,33 @@
     <file url="file://$PROJECT_DIR$/st-dependencies/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/st-framework/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/st-framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-framework/st-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-framework/st-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/st-framework/st-spring-boot-starter-env/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/st-framework/st-spring-boot-starter-env/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-framework/st-spring-boot-starter-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-framework/st-spring-boot-starter-redis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-framework/st-spring-boot-starter-rpc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-framework/st-spring-boot-starter-rpc/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/st-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/st-gateway/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-admin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-admin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-admin/st-module-agent/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-admin/st-module-agent/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-admin/st-module-central/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-admin/st-module-central/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-member/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/st-module-member/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/st-module-agent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/st-module-agent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/st-module-central/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/st-module-central/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/st-module-member/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-endpoint/st-module-member/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-activity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-activity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-payment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-payment/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-report/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-report/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-service-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/st-module-user-service/src/main/resources" charset="UTF-8" />
   </component>
 </project>

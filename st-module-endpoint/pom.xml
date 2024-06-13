@@ -6,16 +6,15 @@
         <artifactId>st-cloud</artifactId>
         <version>${revision}</version>
     </parent>
-    <packaging>pom</packaging>
+    <artifactId>st-module-endpoint</artifactId>
 
-    <artifactId>st-framework</artifactId>
     <name>${project.artifactId}</name>
     <url>https://king.st.com</url>
+    <packaging>pom</packaging>
 
     <modules>
-        <module>st-common</module>
-        <module>st-spring-boot-starter-env</module>
-        <module>st-spring-boot-starter-redis</module>
-        <module>st-spring-boot-starter-rpc</module>
+        <module>st-module-central</module>
+        <module>st-module-agent</module>
+        <module>st-module-member</module>
     </modules>
 </project>
