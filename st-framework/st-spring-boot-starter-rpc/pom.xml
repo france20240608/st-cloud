@@ -18,6 +18,11 @@
             <artifactId>st-common</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-env</artifactId>
+        </dependency>
+
         <!-- RPC 远程调用相关 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -26,6 +31,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openfeign</groupId>
