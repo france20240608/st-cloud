@@ -31,7 +31,6 @@
     <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
     <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
-    <!-- 看看咋放到 bom 里 -->
     <lombok.version>1.18.32</lombok.version>
     <spring.boot.version>3.3.0</spring.boot.version>
     <mapstruct.version>1.5.5.Final</mapstruct.version>

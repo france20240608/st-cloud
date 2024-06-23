@@ -28,8 +28,10 @@
         <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
         <!-- 消息队列 -->
         <rocketmq-spring.version>2.3.0</rocketmq-spring.version>
+        <rocketmq.version>5.2.0</rocketmq.version>
         <!-- 缓存 相关 -->
         <redisson.version>3.31.0</redisson.version>
+        <jetcache.version>2.7.6</jetcache.version>
         <!-- 工具类相关 -->
         <lombok.version>1.18.32</lombok.version>
         <hutool.version>5.8.28</hutool.version>
@@ -79,6 +81,8 @@
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
+
+            <!-- 内部基础设施模块依赖 -->
             <dependency>
                 <groupId>com.st.cloud</groupId>
                 <artifactId>st-spring-boot-starter-env</artifactId>
@@ -87,6 +91,16 @@
             <dependency>
                 <groupId>com.st.cloud</groupId>
                 <artifactId>st-spring-boot-starter-rpc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.st.cloud</groupId>
+                <artifactId>st-spring-boot-starter-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.st.cloud</groupId>
+                <artifactId>st-spring-boot-starter-mq</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -114,9 +128,20 @@
 
             <!-- 缓存相关 -->
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-lettuce -->
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis-lettuce</artifactId>
+                <version>${jetcache.version}</version>
             </dependency>
 
             <!-- 消息队列相关 -->
@@ -125,6 +150,12 @@
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${rocketmq-spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
 
             <!-- 工具类相关 -->
             <dependency>

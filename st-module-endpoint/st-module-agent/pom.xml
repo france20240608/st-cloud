@@ -23,8 +23,21 @@
             <artifactId>st-spring-boot-starter-rpc</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-mq</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
         </dependency>
     </dependencies>
 

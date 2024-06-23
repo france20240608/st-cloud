@@ -12,14 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class UserController {
 
-    @Value("${aaaa:aaaa}")
+    @Value("${spring.application.name:aaaa}")
     private String aaaa;
     @Value("${server.port:11111}")
     private String port;
 
     @GetMapping("/list")
     public String list() {
+        // 从nacos获取配置
         log.info("===============> {}", aaaa);
+        // 查看feign调用是不是负载到从nacos注册中心获取的不同节点
         return port;
     }
 }

@@ -7,7 +7,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>st-spring-boot-starter-redis</artifactId>
+    <artifactId>st-spring-boot-starter-mq</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -18,18 +18,11 @@
             <groupId>com.st.cloud</groupId>
             <artifactId>st-common</artifactId>
         </dependency>
-        
-        <!-- 缓存 相关 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-lettuce -->
+        <!-- 消息隊列 相关 -->
         <dependency>
-            <groupId>com.alicp.jetcache</groupId>
-            <artifactId>jetcache-starter-redis-lettuce</artifactId>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
         </dependency>
-
     </dependencies>
 </project>
