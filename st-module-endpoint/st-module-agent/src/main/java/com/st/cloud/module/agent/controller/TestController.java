@@ -42,7 +42,7 @@ public class TestController {
 
     @GetMapping("/testRedisSet")
     public String testRedisSet() {
-        redisUtil.set("aaaa","bbbbb", 10L, TimeUnit.SECONDS);
+        redisUtil.set("aaaa", System.currentTimeMillis(), 10L, TimeUnit.SECONDS);
         return redisUtil.getString("aaaa");
     }
 

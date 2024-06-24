@@ -18,5 +18,6 @@
         <module>st-spring-boot-starter-redis</module>
         <module>st-spring-boot-starter-rpc</module>
         <module>st-spring-boot-starter-mq</module>
+        <module>st-spring-boot-starter-db</module>
     </modules>
 </project>

@@ -22,6 +22,7 @@
         <spring.cloud.version>2023.0.2</spring.cloud.version>
         <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
         <!-- DB 相关 -->
+        <mysql.version>8.0.33</mysql.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
         <dynamic-datasource.version>4.3.0</dynamic-datasource.version>
@@ -115,8 +116,23 @@
                 <artifactId>st-spring-boot-starter-mq</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.st.cloud</groupId>
+                <artifactId>st-spring-boot-starter-db</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- DB相关 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>

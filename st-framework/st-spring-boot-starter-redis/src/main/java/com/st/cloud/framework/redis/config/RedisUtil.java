@@ -49,7 +49,7 @@ public class RedisUtil {
     public boolean set(final String key, Object value, Long expireTime, TimeUnit timeUnit) {
         boolean result = false;
         try {
-            redisTemplate.opsForValue().set(key, value);
+            redisTemplate.opsForValue().set(key, value.toString());
             redisTemplate.expire(key, expireTime, timeUnit);
             result = true;
         } catch (Exception e) {
