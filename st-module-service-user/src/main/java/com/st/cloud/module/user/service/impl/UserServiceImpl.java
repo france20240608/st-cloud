@@ -1,28 +1,19 @@
 package com.st.cloud.module.user.service.impl;
 
-import com.st.cloud.framework.db.config.ReadOnly;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.st.cloud.module.user.entity.bo.User;
-import com.st.cloud.module.user.repository.UserRepository;
+import com.st.cloud.module.user.mapper.UserMapper;
 import com.st.cloud.module.user.service.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class UserServiceImpl implements UserService {
-
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Resource
-    private UserRepository userRepository;
+    UserMapper userMapper;
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    @ReadOnly
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public User getUserByUserId(Long id){
+        return userMapper.getUserByUserId(id);
     }
 }

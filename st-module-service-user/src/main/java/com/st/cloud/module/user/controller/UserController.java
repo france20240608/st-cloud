@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/user")
 @Slf4j
@@ -35,11 +33,11 @@ public class UserController {
 
     @SentinelResource(value = "user-list", blockHandler = "blockHandlerForUser")
     @GetMapping("/list")
-    public List<User> list() {
+    public User list() {
         // 从nacos获取配置
         log.info("===============> {}", System.currentTimeMillis());
-        List<User> allUsers = userService.getAllUsers();
-        return allUsers;
+        User user = userService.getUserByUserId(1L);
+        return user;
     }
 
     public String blockHandlerForUser(BlockException ex) {
