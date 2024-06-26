@@ -4,11 +4,14 @@ package com.st.cloud.module.agent.controller;
 import com.alicp.jetcache.CacheManager;
 import com.st.cloud.framework.redis.config.RedisUtil;
 import com.st.cloud.module.agent.api.UserApi;
+import com.st.cloud.module.agent.pojo.UserVo;
 import com.st.cloud.module.agent.service.RocketMQProducerService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,11 +36,11 @@ public class TestController {
     @Resource
     private RocketMQProducerService rocketMQProducerService;
 
-    @GetMapping("/testFeign")
-    public String testFeign() {
+    @PostMapping("/testFeign")
+    public String testFeign(@RequestBody UserVo userVo) {
         log.info("===============> {}", aaaa);
         // feign调用其他服务
-        return userApi.userList();
+        return userApi.getUserByUserId(userVo);
     }
 
     @GetMapping("/testRedisSet")

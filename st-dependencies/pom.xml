@@ -34,6 +34,7 @@
         <!-- 缓存 相关 -->
         <redisson.version>3.31.0</redisson.version>
         <jetcache.version>2.7.6</jetcache.version>
+        <caffeine.version>3.1.8</caffeine.version>
         <!-- 工具类相关 -->
         <lombok.version>1.18.32</lombok.version>
         <hutool.version>5.8.28</hutool.version>
@@ -172,11 +173,15 @@
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-lettuce -->
             <dependency>
                 <groupId>com.alicp.jetcache</groupId>
                 <artifactId>jetcache-starter-redis-lettuce</artifactId>
                 <version>${jetcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
             </dependency>
 
             <!-- 消息队列相关 -->

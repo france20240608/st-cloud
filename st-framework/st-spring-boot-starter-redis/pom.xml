@@ -24,12 +24,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-lettuce -->
         <dependency>
             <groupId>com.alicp.jetcache</groupId>
             <artifactId>jetcache-starter-redis-lettuce</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+
 
     </dependencies>
 </project>

@@ -66,6 +66,9 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven-compiler-plugin.version}</version>
           <configuration>
+            <source>21</source>
+            <target>21</target>
+            <compilerArgument>-parameters</compilerArgument>
             <annotationProcessorPaths>
               <path>
                 <groupId>org.springframework.boot</groupId>
