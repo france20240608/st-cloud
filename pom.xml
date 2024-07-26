@@ -15,7 +15,8 @@
     <module>st-dependencies</module>
     <module>st-framework</module>
     <module>st-gateway</module>
-    <module>st-module-endpoint</module>
+    <module>st-module-agent</module>
+    <module>st-module-member</module>
     <module>st-module-service-user</module>
     <module>st-module-service-payment</module>
     <module>st-module-service-report</module>

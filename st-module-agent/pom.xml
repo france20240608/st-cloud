@@ -8,7 +8,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>st-gateway</artifactId>
+    <artifactId>st-module-agent</artifactId>
 
     <name>${project.artifactId}</name>
     <url>https://king.st.com</url>
@@ -18,11 +18,6 @@
             <groupId>com.st.cloud</groupId>
             <artifactId>st-common</artifactId>
         </dependency>
-        <!-- Spring Cloud Gateway -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.st.cloud</groupId>
             <artifactId>st-spring-boot-starter-env</artifactId>
@@ -31,10 +26,18 @@
             <groupId>com.st.cloud</groupId>
             <artifactId>st-spring-boot-starter-rpc</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.st.cloud</groupId>-->
-<!--            <artifactId>st-spring-boot-starter-redis</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-mq</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-db</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
