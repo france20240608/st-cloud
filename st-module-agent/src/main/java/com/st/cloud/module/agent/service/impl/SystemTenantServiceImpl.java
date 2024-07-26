@@ -12,12 +12,4 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SystemTenantServiceImpl extends ServiceImpl<SystemTenantMapper, SystemTenantDO> implements SystemTenantService {
-
-    @Resource
-    private SystemTenantMapper systemTenantMapper;
-
-    @Override
-    public SystemTenantDO getTenantId(String domain) {
-        return systemTenantMapper.getTenantId(domain);
-    }
 }
