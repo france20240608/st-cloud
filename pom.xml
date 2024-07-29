@@ -14,13 +14,11 @@
   <modules>
     <module>st-dependencies</module>
     <module>st-framework</module>
-    <module>st-gateway</module>
-    <module>st-module-agent</module>
-    <module>st-module-member</module>
-    <module>st-module-service-user</module>
-    <module>st-module-service-payment</module>
-    <module>st-module-service-report</module>
-    <module>st-module-service-activity</module>
+    <module>st-api-member</module>
+    <module>st-api-agent</module>
+    <module>st-gateway-agent</module>
+    <module>st-gateway-member</module>
+    <module>st-module-user</module>
   </modules>
 
   <properties>

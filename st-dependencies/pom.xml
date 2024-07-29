@@ -18,11 +18,12 @@
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!-- 统一依赖管理 -->
-        <spring.boot.version>3.3.2</spring.boot.version>
-        <spring.cloud.version>2023.0.2</spring.cloud.version>
-        <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
+        <spring.boot.version>3.2.8</spring.boot.version>
+        <spring.cloud.version>2023.0.3</spring.cloud.version>
+        <spring.cloud.alibaba.version>2023.0.1.2</spring.cloud.alibaba.version>
         <spring.cloud.gateway.version>4.1.5</spring.cloud.gateway.version>
-        <spring.boot.security.version>3.3.2</spring.boot.security.version>
+        <spring.boot.security.version>3.2.8</spring.boot.security.version>
+
         <spring.security.config.version>6.3.1</spring.security.config.version>
         <!-- DB 相关 -->
         <mysql.version>8.4.0</mysql.version>
@@ -43,6 +44,7 @@
         <hutool.version>5.8.28</hutool.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <fastjson2.version>2.0.51</fastjson2.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <!-- Test 单元测试相关 -->
         <mockito-inline.version>5.2.0</mockito-inline.version>
         <!-- 监控相关 -->
@@ -112,11 +114,11 @@
                 <version>${spring.boot.security.version}</version>
             </dependency>
             <!-- Reactive Security for WebFlux -->
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-config</artifactId>
-                <version>${spring.security.config.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.security</groupId>-->
+<!--                <artifactId>spring-security-config</artifactId>-->
+<!--                <version>${spring.security.config.version}</version>-->
+<!--            </dependency>-->
 
             <!-- 内部基础设施模块依赖 -->
             <dependency>
@@ -144,6 +146,18 @@
                 <artifactId>st-spring-boot-starter-db</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.st.cloud</groupId>
+                <artifactId>st-spring-boot-starter-biz-tenant</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 内部业务模块feign api依赖 -->
+            <dependency>
+                <groupId>com.st.cloud</groupId>
+                <artifactId>st-module-user-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- DB相关 -->
             <dependency>
@@ -167,21 +181,16 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis-spring.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId> <!-- 代码生成器，使用它解析表结构 -->
-                <version>${mybatis-plus-generator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId> <!-- 多数据源 -->
-                <version>${dynamic-datasource.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.yulichang</groupId>
-                <artifactId>mybatis-plus-join-boot-starter</artifactId> <!-- MyBatis 联表查询 -->
-                <version>${mybatis-plus-join.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.baomidou</groupId>-->
+<!--                <artifactId>mybatis-plus-generator</artifactId> &lt;!&ndash; 代码生成器，使用它解析表结构 &ndash;&gt;-->
+<!--                <version>${mybatis-plus-generator.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>com.github.yulichang</groupId>-->
+<!--                <artifactId>mybatis-plus-join-boot-starter</artifactId> &lt;!&ndash; MyBatis 联表查询 &ndash;&gt;-->
+<!--                <version>${mybatis-plus-join.version}</version>-->
+<!--            </dependency>-->
 
             <!-- 缓存相关 -->
             <dependency>
@@ -249,6 +258,11 @@
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson2.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
 
             <!-- Test 单元测试相关 -->
             <dependency>
@@ -287,16 +301,6 @@
                 <groupId>org.apache.skywalking</groupId>
                 <artifactId>apm-toolkit-opentracing</artifactId>
                 <version>${skywalking.version}</version>
-                <!--                <exclusions>-->
-                <!--                    <exclusion>-->
-                <!--                        <artifactId>opentracing-api</artifactId>-->
-                <!--                        <groupId>io.opentracing</groupId>-->
-                <!--                    </exclusion>-->
-                <!--                    <exclusion>-->
-                <!--                        <artifactId>opentracing-util</artifactId>-->
-                <!--                        <groupId>io.opentracing</groupId>-->
-                <!--                    </exclusion>-->
-                <!--                </exclusions>-->
             </dependency>
             <dependency>
                 <groupId>io.opentracing</groupId>

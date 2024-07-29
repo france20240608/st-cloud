@@ -1,0 +1,2 @@
+com.st.cloud.framework.db.datasource.TiDBDataSourceConfig
+com.st.cloud.framework.db.mybatis.config.MybatisAutoConfiguration

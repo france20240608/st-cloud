@@ -6,11 +6,11 @@
         <artifactId>st-cloud</artifactId>
         <version>${revision}</version>
     </parent>
-    <packaging>pom</packaging>
 
     <artifactId>st-framework</artifactId>
     <name>${project.artifactId}</name>
     <url>https://king.st.com</url>
+    <packaging>pom</packaging>
 
     <modules>
         <module>st-common</module>
@@ -19,5 +19,6 @@
         <module>st-spring-boot-starter-rpc</module>
         <module>st-spring-boot-starter-mq</module>
         <module>st-spring-boot-starter-db</module>
+        <module>st-spring-boot-starter-biz-tenant</module>
     </modules>
 </project>
