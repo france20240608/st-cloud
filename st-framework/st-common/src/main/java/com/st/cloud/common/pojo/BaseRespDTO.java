@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class BaseRespDTO implements Serializable {
 
-    private Integer tenantId;
+    private Long tenantId;
 
     private LocalDateTime createTime;
     private String createUser;

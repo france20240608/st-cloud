@@ -8,7 +8,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class SystemTenantSiteVO extends BaseVO {
     private Long id;
-    private Integer tenantId;
     private String name;
     private String domain;
     private Integer status;

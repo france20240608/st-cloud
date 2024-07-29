@@ -14,6 +14,8 @@ public class MemberUserReqDTO extends BaseReqDTO {
     private Integer loginStatus;
     private Integer betStatus;
     private LocalDateTime lastLoginTime;
+    private Integer type;
+    private Integer level;
     private LocalDateTime createTime;
     private String createUser;
     private LocalDateTime updateTime;

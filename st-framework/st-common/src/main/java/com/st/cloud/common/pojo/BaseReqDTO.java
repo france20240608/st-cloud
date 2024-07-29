@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 @Data
 public class BaseReqDTO implements Serializable {
 
+    private Long tenantId;
+
     private LocalDateTime createTime;
     private String createUser;
     private LocalDateTime updateTime;

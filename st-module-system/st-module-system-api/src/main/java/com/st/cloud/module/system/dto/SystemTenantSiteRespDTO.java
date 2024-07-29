@@ -1,14 +1,13 @@
 package com.st.cloud.module.system.dto;
 
-import com.st.cloud.common.pojo.BaseReqDTO;
+import com.st.cloud.common.pojo.BaseRespDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class SystemTenantSiteRespDTO extends BaseReqDTO {
+public class SystemTenantSiteRespDTO extends BaseRespDTO {
     private Long id;
-    private Integer tenantId;
     private String name;
     private String domain;
     private Integer status;

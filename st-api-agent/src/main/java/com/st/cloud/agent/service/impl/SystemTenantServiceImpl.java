@@ -1,6 +1,6 @@
 package com.st.cloud.agent.service.impl;
 
-import com.st.cloud.agent.service.SystemTenantSiteService;
+import com.st.cloud.agent.service.SystemTenantService;
 import com.st.cloud.common.pojo.CommonResult;
 import com.st.cloud.module.system.SystemApi;
 import com.st.cloud.module.system.dto.SystemTenantSiteReqDTO;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 @Service
-public class SystemTenantSiteServiceImpl implements SystemTenantSiteService {
+public class SystemTenantServiceImpl implements SystemTenantService {
 
     @Resource
     private SystemApi systemApi;

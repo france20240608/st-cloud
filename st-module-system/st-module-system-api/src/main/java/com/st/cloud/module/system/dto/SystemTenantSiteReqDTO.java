@@ -8,7 +8,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class SystemTenantSiteReqDTO extends BaseReqDTO {
     private Long id;
-    private Integer tenantId;
     private String name;
     private String domain;
     private Integer status;

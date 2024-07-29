@@ -15,5 +15,6 @@ public class AdminLoginRespDTO extends BaseRespDTO {
     private Integer loginStatus;
     private Integer betStatus;
     private LocalDateTime lastLoginTime;
-    private Integer deleted;
+    private Integer type;
+    private Integer level;
 }

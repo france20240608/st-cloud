@@ -15,8 +15,8 @@ public class MemberUserVO extends BaseVO {
     private Integer loginStatus;
     private Integer betStatus;
     private LocalDateTime lastLoginTime;
-    private Integer tenantId;
-    private Integer deleted;
+    private Integer type;
+    private Integer level;
     private LocalDateTime createTime;
     private String createUser;
     private LocalDateTime updateTime;

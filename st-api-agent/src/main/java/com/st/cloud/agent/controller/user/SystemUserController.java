@@ -16,8 +16,13 @@ public class SystemUserController {
     @Resource
     private SystemUserService systemUserService;
 
-    @PostMapping("/getByUsername")
-    public CommonResult<MemberUserRespDTO> getByUsername(String username) {
-        return systemUserService.getByUsername(username);
+    @PostMapping("/getMemberByUsername")
+    public CommonResult<MemberUserRespDTO> getMemberByUsername(String username) {
+        return systemUserService.getMemberByUsername(username);
+    }
+
+    @PostMapping("/getAdminByUsername")
+    public CommonResult<MemberUserRespDTO> getAdminByUsername(String username) {
+        return systemUserService.getAdminByUsername(username);
     }
 }

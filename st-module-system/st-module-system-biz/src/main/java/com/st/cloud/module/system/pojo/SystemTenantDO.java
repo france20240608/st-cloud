@@ -11,7 +11,6 @@ import lombok.EqualsAndHashCode;
 @TableName("system_tenant")
 public class SystemTenantDO extends BaseDO {
     private Long id;
-    private Integer tenantId;
     private String name;
     private String domain;
     private Integer status;

@@ -15,9 +15,23 @@ public class SystemUserServiceImpl implements SystemUserService {
     private UserApi userApi;
 
     @Override
-    public CommonResult<MemberUserRespDTO> getByUsername(String username) {
+    public CommonResult<MemberUserRespDTO> getMemberByUsername(String username) {
         MemberUserReqDTO reqDTO = new MemberUserReqDTO();
         reqDTO.setUsername(username);
         return userApi.getUserByUsername(reqDTO);
     }
+
+    @Override
+    public CommonResult<MemberUserRespDTO> getAdminByUsername(String username) {
+        MemberUserReqDTO reqDTO = new MemberUserReqDTO();
+        reqDTO.setUsername(username);
+        return userApi.getAdminByUsername(reqDTO);
+    }
+
+    @Override
+    public CommonResult<MemberUserRespDTO> getUserByUsername(String username) {
+        return null;
+    }
+
+
 }
