@@ -1,9 +1,9 @@
-package com.st.cloud.agent.service.impl;
+package com.st.cloud.module.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.st.cloud.agent.mapper.SystemTenantMapper;
-import com.st.cloud.agent.pojo.ob.SystemTenantDO;
-import com.st.cloud.agent.service.SystemTenantService;
+import com.st.cloud.module.system.mapper.SystemTenantMapper;
+import com.st.cloud.module.system.pojo.SystemTenantDO;
+import com.st.cloud.module.system.service.SystemTenantService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,23 +1,19 @@
 package com.st.cloud.module.system.pojo;
 
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.st.cloud.common.pojo.BaseDO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+
 @EqualsAndHashCode(callSuper = true)
-@TableName("system_menu")
 @Data
-public class SystemMenuDO extends BaseDO {
+@TableName("system_tenant")
+public class SystemTenantDO extends BaseDO {
     private Long id;
+    private Integer tenantId;
     private String name;
-    private String permission;
-    private String path;
-    private Long parentId;
-    private Integer sort;
-    private String icon;
-    private Integer type;
+    private String domain;
     private Integer status;
-    private Integer visible;
+    private Integer type;
 }

@@ -1,4 +1,4 @@
-package com.st.cloud.agent.controller.site;
+package com.st.cloud.agent.controller.tenant;
 
 import com.st.cloud.agent.core.Constant;
 import org.springframework.web.bind.annotation.RequestMapping;

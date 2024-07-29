@@ -1,15 +1,12 @@
-package com.st.cloud.agent.pojo.ob;
+package com.st.cloud.module.system.dto;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.st.cloud.common.pojo.BaseDO;
+import com.st.cloud.common.pojo.BaseReqDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("system_tenant")
-public class SystemTenantDO extends BaseDO {
+public class SystemTenantSiteRespDTO extends BaseReqDTO {
     private Long id;
     private Integer tenantId;
     private String name;

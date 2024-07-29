@@ -1,7 +1,7 @@
-package com.st.cloud.agent.mapper;
+package com.st.cloud.module.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.st.cloud.agent.pojo.ob.SystemTenantDO;
+import com.st.cloud.module.system.pojo.SystemTenantDO;
 import org.springframework.stereotype.Repository;
 
 @Repository

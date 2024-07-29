@@ -1,4 +1,4 @@
-package com.st.cloud.agent.pojo.ob;
+package com.st.cloud.module.system.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.st.cloud.common.pojo.BaseDO;

@@ -1,10 +1,11 @@
-package com.st.cloud.module.user.service.impl;
+package com.st.cloud.module.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.st.cloud.module.system.convert.SystemMenuDTOConvert;
 import com.st.cloud.module.system.dto.SystemMenuRespDTO;
-import com.st.cloud.module.user.mapper.SystemMenuMapper;
-import com.st.cloud.module.user.pojo.SystemMenuDO;
-import com.st.cloud.module.user.service.SystemMenuService;
+import com.st.cloud.module.system.mapper.SystemMenuMapper;
+import com.st.cloud.module.system.pojo.SystemMenuDO;
+import com.st.cloud.module.system.service.SystemMenuService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,12 @@ public class SystemMenuServiceImpl extends ServiceImpl<SystemMenuMapper, SystemM
     @Override
     public List<SystemMenuRespDTO> getMenuList(SystemMenuRespDTO dto) {
         List<SystemMenuDO> list = systemMenuMapper.getMenuList(dto);
+        return SystemMenuDTOConvert.INSTANCE.convert(list);
+    }
 
-        return null;
+    @Override
+    public SystemMenuRespDTO getMenuDetail(SystemMenuRespDTO dto) {
+        SystemMenuDO detail = systemMenuMapper.getMenuDetail(dto);
+        return SystemMenuDTOConvert.INSTANCE.convert(detail);
     }
 }

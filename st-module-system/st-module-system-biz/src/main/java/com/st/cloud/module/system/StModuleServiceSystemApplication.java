@@ -15,5 +15,4 @@ public class StModuleServiceSystemApplication {
     public static void main(String[] args) {
         SpringApplication.run(StModuleServiceSystemApplication.class, args);
     }
-
 }

@@ -1,9 +1,9 @@
-package com.st.cloud.module.user.controller;
+package com.st.cloud.module.system.controller;
 
 
 import com.st.cloud.common.pojo.CommonResult;
 import com.st.cloud.module.system.dto.SystemMenuRespDTO;
-import com.st.cloud.module.user.service.SystemMenuService;
+import com.st.cloud.module.system.service.SystemMenuService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +27,11 @@ public class SystemMenuController {
     @PostMapping("/getMenuList")
     public CommonResult<List<SystemMenuRespDTO>> getMenuList(@RequestBody SystemMenuRespDTO dto) {
         return CommonResult.success(systemMenuService.getMenuList(dto));
+    }
+
+    @PostMapping("/getMenuDetail")
+    public CommonResult<SystemMenuRespDTO> getMenuDetail(@RequestBody SystemMenuRespDTO dto) {
+        return CommonResult.success(systemMenuService.getMenuDetail(dto));
     }
 
 }
