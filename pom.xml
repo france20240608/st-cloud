@@ -19,6 +19,7 @@
     <module>st-gateway-agent</module>
     <module>st-gateway-member</module>
     <module>st-module-user</module>
+    <module>st-module-system</module>
   </modules>
 
   <properties>

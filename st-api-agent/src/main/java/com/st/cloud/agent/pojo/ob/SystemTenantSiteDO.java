@@ -5,11 +5,10 @@ import com.st.cloud.common.pojo.BaseDO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("system_site")
-public class SystemSiteDO extends BaseDO {
+@TableName("system_tenant_site")
+public class SystemTenantSiteDO extends BaseDO {
     private Long id;
     private Integer tenantId;
     private String name;

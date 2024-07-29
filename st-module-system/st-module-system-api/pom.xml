@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.st.cloud</groupId>
+        <artifactId>st-module-system</artifactId>
+        <version>1.0.0-snapshot</version>
+    </parent>
+
+    <artifactId>st-module-system-api</artifactId>
+
+    <name>${project.artifactId}</name>
+    <url>https://king.st.com</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-rpc</artifactId>
+        </dependency>
+    </dependencies>
+</project>

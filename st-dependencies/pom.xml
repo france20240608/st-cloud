@@ -158,6 +158,11 @@
                 <artifactId>st-module-user-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.st.cloud</groupId>
+                <artifactId>st-module-system-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- DB相关 -->
             <dependency>

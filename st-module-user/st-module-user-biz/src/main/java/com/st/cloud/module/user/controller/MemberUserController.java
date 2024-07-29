@@ -51,7 +51,7 @@ public class MemberUserController {
     }
 
     public String blockHandlerForUser(BlockException ex) {
-        log.info("===============> {}", "user-list is blocked");
+        log.info("===============> {}", "user-list is blocked", ex);
         return "user-list sentinel is blocked";
     }
 }
