@@ -1,12 +1,15 @@
 package com.st.cloud.agent.service;
 
+import com.st.cloud.agent.pojo.vo.LoginVO;
+import com.st.cloud.agent.pojo.vo.MemberUserVO;
 import com.st.cloud.common.pojo.CommonResult;
-import com.st.cloud.module.user.dto.MemberUserRespDTO;
 
 public interface SystemUserService {
-    CommonResult<MemberUserRespDTO> getMemberByUsername(String username);
+    CommonResult<MemberUserVO> getMemberByUsername(String username);
 
-    CommonResult<MemberUserRespDTO> getAdminByUsername(String username);
+    CommonResult<MemberUserVO> getAdminByUsername(String username);
 
-    CommonResult<MemberUserRespDTO> getUserByUsername(String username);
+    CommonResult<MemberUserVO> getUserByUsername(String username);
+
+    CommonResult<MemberUserVO> login(LoginVO vo);
 }

@@ -14,6 +14,7 @@ public class StModuleAgentApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(StModuleAgentApplication.class, args);
+        System.out.println("st-api-agent 启动成功！");
     }
 
 }

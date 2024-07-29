@@ -9,7 +9,15 @@ import lombok.EqualsAndHashCode;
 public class SystemMenuVO extends BaseVO {
     private Long id;
     private String name;
-    private String domain;
-    private Integer status;
+    private String permission;
+    private String path;
+    private Long parentId;
+    private Integer sort;
+    private String icon;
     private Integer type;
+    private Integer status;
+    private Integer visible;
+
+    //
+    private Integer RoleId;
 }

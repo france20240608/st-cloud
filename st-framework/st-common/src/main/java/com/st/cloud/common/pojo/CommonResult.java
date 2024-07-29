@@ -42,4 +42,11 @@ public class CommonResult<T> implements Serializable {
         result.setCode(code);
         return result;
     }
+
+    public static <T> CommonResult<T> fail(CommonResult cr) {
+        CommonResult<T> result = new CommonResult<>();
+        result.setMessage(cr.getMessage());
+        result.setCode(cr.getCode());
+        return result;
+    }
 }

@@ -1,7 +1,7 @@
 package com.st.cloud.framework.tenant.core.web;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.NumberUtil;
+import com.alibaba.csp.sentinel.util.StringUtil;
 import com.st.cloud.framework.tenant.config.TenantProperties;
 import com.st.cloud.framework.tenant.core.context.TenantContextHolder;
 import io.micrometer.common.util.StringUtils;
@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.lang.NonNullApi;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -32,11 +31,14 @@ public class TenantContextWebFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain chain)
             throws ServletException, IOException {
+        String tenantId = request.getHeader(HEADER_TENANT_ID);
         if(!isIgnoreUrl(request)) {
-            // 设置 tenantId
-            System.out.println(request.getRequestURI());
-            String tenantId = request.getHeader(HEADER_TENANT_ID);
+            // 不能忽略的URL，设置 tenantId
             if (StringUtils.isNotBlank(tenantId)) {
+                // 但是如果租户编号是 0-系统租户（超级管理员租户） 的请求，也设为不需要设置租户信息，但是需要系统租户的血缘，以便传给下游服务
+                if(StringUtil.equals(tenantId, "0")) {
+                    TenantContextHolder.setIgnore(true);
+                }
                 TenantContextHolder.setTenantId(Long.valueOf(tenantId));
             }
         } else {

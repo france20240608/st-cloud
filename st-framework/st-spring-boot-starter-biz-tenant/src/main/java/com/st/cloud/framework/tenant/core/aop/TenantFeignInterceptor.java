@@ -12,9 +12,9 @@ public class TenantFeignInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        if(!TenantContextHolder.isIgnore()){
+//        if(!TenantContextHolder.isIgnore()){
             // 在这里添加默认的请求头
             requestTemplate.header(HEADER_TENANT_ID, String.valueOf(TenantContextHolder.getTenantId()));
-        }
+//        }
     }
 }

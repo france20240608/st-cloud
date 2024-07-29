@@ -21,10 +21,9 @@ public class SystemTenantServiceImpl implements SystemTenantService {
         SystemTenantSiteReqDTO dto = new SystemTenantSiteReqDTO();
         dto.setDomain(domain);
         CommonResult<SystemTenantSiteRespDTO> tenant = systemApi.getTenantId(dto);
-        if(Objects.nonNull(tenant) && Objects.nonNull(tenant.getData())) {
+        if(Objects.nonNull(tenant.getData())) {
             return CommonResult.success(String.valueOf(tenant.getData().getTenantId()));
-        } else {
-            return CommonResult.fail("10001","获取租户ID失败");
         }
+        return CommonResult.fail(tenant.getCode(), tenant.getMessage());
     }
 }
