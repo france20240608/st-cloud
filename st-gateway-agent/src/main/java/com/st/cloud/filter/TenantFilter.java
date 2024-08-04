@@ -2,7 +2,7 @@ package com.st.cloud.filter;
 
 import com.alibaba.csp.sentinel.util.StringUtil;
 import com.st.cloud.api.SystemApi;
-import com.st.cloud.common.pojo.CommonResult;
+import com.st.cloud.common.pojo.R;
 import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerExchangeFilterFunction;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -32,7 +32,7 @@ public class TenantFilter extends AbstractGatewayFilterFactory<TenantFilter.Conf
             // 获取请求的域名
             String host = request.getURI().getHost();
 
-            CommonResult result = checkTenantId(host).block();
+            R result = checkTenantId(host).block();
             // 设置下游请求头
             if(Objects.nonNull(result) && StringUtil.equals(result.getCode(), "0000")) {
                 ServerHttpRequest modifiedRequest = request.mutate()
@@ -49,10 +49,10 @@ public class TenantFilter extends AbstractGatewayFilterFactory<TenantFilter.Conf
         // 配置类，如果需要可以添加配置属性
     }
 
-    private Mono<CommonResult> checkTenantId(String domain) {
+    private Mono<R> checkTenantId(String domain) {
         return webClient.get()
                 .uri(SystemApi.GET_TENANT_ID, uriBuilder -> uriBuilder.queryParam("domain", domain).build())
-                .retrieve().bodyToMono(CommonResult.class);
+                .retrieve().bodyToMono(R.class);
     }
 
 }
