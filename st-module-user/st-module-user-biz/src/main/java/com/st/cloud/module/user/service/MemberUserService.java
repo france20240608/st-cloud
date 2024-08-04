@@ -1,20 +1,22 @@
 package com.st.cloud.module.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.st.cloud.common.pojo.CommonResult;
+import com.st.cloud.common.pojo.R;
 import com.st.cloud.module.user.dto.AdminLoginReqDTO;
 import com.st.cloud.module.user.dto.AdminLoginRespDTO;
 import com.st.cloud.module.user.dto.MemberUserRespDTO;
-import com.st.cloud.module.user.pojo.MemberUserDO;
+import com.st.cloud.module.user.pojo.MemberUser;
 
-public interface MemberUserService extends IService<MemberUserDO> {
-    MemberUserDO getUserByUserId(Long id);
+public interface MemberUserService extends IService<MemberUser> {
+    MemberUser getUserByUserId(Long id);
 
-    CommonResult<MemberUserRespDTO> getUserByUsername(String username);
+    R<MemberUserRespDTO> getUserByUsername(String username);
 
-    MemberUserDO getAdminByUserId(Long id);
+    MemberUser getAdminByUserId(Long id);
 
-    CommonResult<MemberUserRespDTO> getAdminByUsername(String username);
+    R<MemberUserRespDTO> getAdminByUsername(String username);
 
-    CommonResult<AdminLoginRespDTO> adminLogin(AdminLoginReqDTO dto);
+    R<AdminLoginRespDTO> adminLogin(AdminLoginReqDTO dto);
+
+    R<AdminLoginRespDTO> getAdminLoginUser(AdminLoginReqDTO dto);
 }

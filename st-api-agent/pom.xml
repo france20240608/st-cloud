@@ -35,6 +35,11 @@
             <artifactId>st-spring-boot-starter-biz-tenant</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.st.cloud</groupId>
+            <artifactId>st-spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- 内部业务模块feign api -->
         <dependency>
             <groupId>com.st.cloud</groupId>

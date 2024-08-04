@@ -1,7 +1,7 @@
 package com.st.cloud.module.system.controller;
 
 
-import com.st.cloud.common.pojo.CommonResult;
+import com.st.cloud.common.pojo.R;
 import com.st.cloud.module.system.dto.SystemTenantSiteReqDTO;
 import com.st.cloud.module.system.dto.SystemTenantSiteRespDTO;
 import com.st.cloud.module.system.service.SystemTenantSiteService;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.st.cloud.common.base.ApiPrefixConstant.API_PREFIX_SYSTEM;
+import static com.st.cloud.common.constants.ApiPrefixConstant.API_PREFIX_SYSTEM;
 
 
 @RestController
@@ -24,8 +24,8 @@ public class SystemTenantSiteController {
     private SystemTenantSiteService systemTenantSiteService;
 
     @PostMapping("/getTenantId")
-    public CommonResult<SystemTenantSiteRespDTO> getTenantId(@RequestBody SystemTenantSiteReqDTO dto) {
-        return CommonResult.success(systemTenantSiteService.getTenantId(dto));
+    public R<SystemTenantSiteRespDTO> getTenantId(@RequestBody SystemTenantSiteReqDTO dto) {
+        return R.success(systemTenantSiteService.getTenantId(dto));
     }
 
 }

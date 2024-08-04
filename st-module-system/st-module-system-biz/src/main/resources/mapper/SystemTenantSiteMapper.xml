@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.st.cloud.module.system.mapper.SystemTenantSiteMapper">
-    <select id="getTenantId" resultType="com.st.cloud.module.system.pojo.SystemTenantSiteDO">
+    <select id="getTenantId" resultType="com.st.cloud.module.system.pojo.SystemTenantSite">
         SELECT
             *
         FROM
             system_tenant_site
         WHERE
-            domain = #{domain}
+            domain = #{item.domain}
             and type = 1
             and status = 1
     </select>

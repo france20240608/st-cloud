@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import com.st.cloud.agent.pojo.convert.SystemMenuVOConvert;
 import com.st.cloud.agent.pojo.vo.SystemMenuVO;
 import com.st.cloud.agent.service.SystemPermissionService;
-import com.st.cloud.common.pojo.CommonResult;
+import com.st.cloud.common.pojo.R;
 import com.st.cloud.module.system.SystemApi;
 import com.st.cloud.module.system.dto.SystemMenuReqDTO;
 import com.st.cloud.module.system.dto.SystemMenuRespDTO;
@@ -21,24 +21,24 @@ public class SystemPermissionServiceImpl implements SystemPermissionService {
     private SystemApi systemApi;
 
     @Override
-    public CommonResult<List<SystemMenuVO>> getMenuList(SystemMenuVO vo) {
+    public R<List<SystemMenuVO>> getMenuList(SystemMenuVO vo) {
         SystemMenuReqDTO dto = new SystemMenuReqDTO();
         BeanUtils.copyProperties(vo, dto);
-        CommonResult<List<SystemMenuRespDTO>> menuList = systemApi.getMenuList(dto);
+        R<List<SystemMenuRespDTO>> menuList = systemApi.getMenuList(dto);
         if(ObjectUtil.isNotNull(menuList.getData())) {
-            return CommonResult.success(SystemMenuVOConvert.INSTANCE.convert(menuList.getData()));
+            return R.success(SystemMenuVOConvert.INSTANCE.convert(menuList.getData()));
         }
-        return CommonResult.fail(menuList.getCode(), menuList.getMessage());
+        return R.fail(menuList.getCode(), menuList.getMessage());
     }
 
     @Override
-    public CommonResult<List<SystemMenuVO>> getRoleMenuList(SystemMenuVO vo) {
+    public R<List<SystemMenuVO>> getRoleMenuList(SystemMenuVO vo) {
         SystemMenuReqDTO dto = new SystemMenuReqDTO();
         BeanUtils.copyProperties(vo, dto);
-        CommonResult<List<SystemMenuRespDTO>> menuList = systemApi.getMenuList(dto);
+        R<List<SystemMenuRespDTO>> menuList = systemApi.getMenuList(dto);
         if(ObjectUtil.isNotNull(menuList.getData())) {
-            return CommonResult.success(SystemMenuVOConvert.INSTANCE.convert(menuList.getData()));
+            return R.success(SystemMenuVOConvert.INSTANCE.convert(menuList.getData()));
         }
-        return CommonResult.fail(menuList.getCode(), menuList.getMessage());
+        return R.fail(menuList.getCode(), menuList.getMessage());
     }
 }

@@ -40,7 +40,8 @@ st-cloud
         >st-spring-boot-starter-redis   ## 二级缓存
         >st-spring-boot-starter-rpc     ## 网络调用
     st-common                           ## 工具类
-    st-gateway                          ## 技术网关
+    st-gateway-agent                    ## 技术网关
+    st-gateway-member                   ## 技术网关
     st-module-endpoint                  ## 对外API暴露模块
         >st-module-agent                ## 代理系统
         >st-module-central              ## 总控系统

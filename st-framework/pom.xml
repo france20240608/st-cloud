@@ -19,6 +19,7 @@
         <module>st-spring-boot-starter-rpc</module>
         <module>st-spring-boot-starter-mq</module>
         <module>st-spring-boot-starter-db</module>
+        <module>st-spring-boot-starter-security</module>
         <module>st-spring-boot-starter-biz-tenant</module>
     </modules>
 </project>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.st.cloud.module.system.mapper.SystemRoleMapper">
+    <resultMap id="SystemRoleResultMap" type="com.st.cloud.module.system.pojo.SystemRole">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="tenant_id" jdbcType="BIGINT" property="tenantId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    </resultMap>
+
+    <select id="pageRoleList" resultMap="SystemRoleResultMap">
+        SELECT
+            <include refid="selectColumnStatement"/>
+        FROM
+            system_role
+        <include refid="whereStatement"/>
+    </select>
+    <select id="countRole" resultType="java.lang.Integer">
+        SELECT
+            count(*)
+        FROM
+            system_role
+        <where>
+            <if test="item.tenantId != null">
+                AND tenant_id = #{item.tenantId}
+            </if>
+            <if test="item.name != null and item.name != ''">
+                AND name = #{item.name}
+            </if>
+        </where>
+    </select>
+
+    <sql id="whereStatement">
+        <where>
+            <if test="item.id != null">
+                AND id = #{item.id}
+            </if>
+            <if test="item.name != null and item.name != ''">
+                AND name = #{item.name}
+            </if>
+            <if test="item.status != null">
+                AND status = #{item.status}
+            </if>
+            <if test="item.parentId != null">
+                AND parent_id = #{item.parentId}
+            </if>
+            <if test="item.tenantId != null">
+                AND tenant_id = #{item.tenantId}
+            </if>
+        </where>
+    </sql>
+    <sql id="selectColumnStatement">
+        id,
+        name,
+        parent_id,
+        status,
+        tenant_id,
+        create_time,
+        create_user,
+        update_time,
+        update_user
+    </sql>
+</mapper>

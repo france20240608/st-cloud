@@ -21,5 +21,9 @@
             <groupId>com.st.cloud</groupId>
             <artifactId>st-spring-boot-starter-rpc</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 </project>

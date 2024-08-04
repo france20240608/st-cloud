@@ -2,6 +2,8 @@ package com.st.cloud.framework.tenant.config;
 
 import com.st.cloud.common.enums.WebFilterOrderEnum;
 import com.st.cloud.framework.tenant.core.aop.FeignClientTenantAspect;
+import com.st.cloud.framework.tenant.core.aop.TenantIgnoreAspect;
+import com.st.cloud.framework.tenant.core.aop.TenantMustAspect;
 import com.st.cloud.framework.tenant.core.web.TenantContextWebFilter;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -16,7 +18,7 @@ public class TenantAutoConfiguration {
 
     // ========== DB ==========
 
-//    @Bean
+//    @Bean 这里会产生跟Mybatis的循环依赖，不放到这里
 //    public TenantLineInnerInterceptor tenantLineInnerInterceptor(TenantProperties properties, MybatisPlusInterceptor interceptor) {
 //        TenantLineInnerInterceptor inner = new TenantLineInnerInterceptor(new TenantDatabaseInterceptor(properties));
 //        // 添加到 interceptor 中
@@ -38,5 +40,16 @@ public class TenantAutoConfiguration {
     @Bean
     public FeignClientTenantAspect feignClientTenantAspect() {
         return new FeignClientTenantAspect();
+    }
+
+
+    // ========== AOP ==========
+    @Bean
+    public TenantIgnoreAspect tenantIgnoreAspect() {
+        return new TenantIgnoreAspect();
+    }
+    @Bean
+    public TenantMustAspect tenantMustAspect() {
+        return new TenantMustAspect();
     }
 }

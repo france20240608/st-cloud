@@ -1,7 +1,7 @@
 package com.st.cloud.framework.tenant.core.web;
 
 import cn.hutool.core.collection.CollUtil;
-import com.alibaba.csp.sentinel.util.StringUtil;
+import com.st.cloud.common.constants.SecurityConstant;
 import com.st.cloud.framework.tenant.config.TenantProperties;
 import com.st.cloud.framework.tenant.core.context.TenantContextHolder;
 import io.micrometer.common.util.StringUtils;
@@ -15,7 +15,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-import static com.st.cloud.common.base.Constant.HEADER_TENANT_ID;
 
 /**
  * 多租户 Context Web 过滤器
@@ -31,13 +30,16 @@ public class TenantContextWebFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain chain)
             throws ServletException, IOException {
-        String tenantId = request.getHeader(HEADER_TENANT_ID);
+        String tenantId = request.getHeader(SecurityConstant.HEADER_TENANT_ID);
         if(!isIgnoreUrl(request)) {
             // 不能忽略的URL，设置 tenantId
             if (StringUtils.isNotBlank(tenantId)) {
                 // 但是如果租户编号是 0-系统租户（超级管理员租户） 的请求，也设为不需要设置租户信息，但是需要系统租户的血缘，以便传给下游服务
-                if(StringUtil.equals(tenantId, "0")) {
+                // TODO 需要思考，有些地方，普通租户的内容是否也允许系统租户能编辑，例如租户的角色，以及角色的权限等等
+                if(TenantContextHolder.isSystemTenant(Long.valueOf(tenantId))) {
                     TenantContextHolder.setIgnore(true);
+                } else {
+                    TenantContextHolder.setIgnore(false);
                 }
                 TenantContextHolder.setTenantId(Long.valueOf(tenantId));
             }

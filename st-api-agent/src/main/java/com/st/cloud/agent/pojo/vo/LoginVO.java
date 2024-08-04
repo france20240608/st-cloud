@@ -4,9 +4,13 @@ import com.st.cloud.common.pojo.BaseVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Set;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class LoginVO extends BaseVO {
-    public String username;
-    public String password;
+    private String username;
+    private String password;
+    private Set<SystemMenuVO> menus;
+    private String token;
 }

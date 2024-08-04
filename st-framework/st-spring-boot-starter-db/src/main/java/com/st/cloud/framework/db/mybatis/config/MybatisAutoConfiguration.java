@@ -3,21 +3,15 @@ package com.st.cloud.framework.db.mybatis.config;
 import com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
 import com.st.cloud.framework.db.mybatis.handler.DefaultDBFieldHandler;
 import com.st.cloud.framework.db.mybatis.handler.TenantDatabaseInterceptor;
-import com.st.cloud.framework.db.mybatis.util.MyBatisUtils;
 import com.st.cloud.framework.tenant.config.TenantProperties;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.context.annotation.Bean;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * MyBaits 配置类
@@ -32,8 +26,10 @@ public class MybatisAutoConfiguration {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor(TenantProperties properties) {
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        // 血缘插件
         mybatisPlusInterceptor.addInnerInterceptor(new TenantLineInnerInterceptor(new TenantDatabaseInterceptor(properties)));
-        mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor()); // 分页插件
+        // 分页插件
+        mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
         return mybatisPlusInterceptor;
     }
 

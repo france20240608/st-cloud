@@ -1,46 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.st.cloud.module.system.mapper.SystemMenuMapper">
-    <select id="getMenuList" resultType="com.st.cloud.module.system.pojo.SystemMenuDO">
+    <resultMap id="SystemMenuResultMap" type="com.st.cloud.module.system.pojo.SystemMenu">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="permission" jdbcType="VARCHAR" property="permission"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="i18n_tag" jdbcType="VARCHAR" property="i18nTag"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="visible" jdbcType="INTEGER" property="visible"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    </resultMap>
+    <delete id="deleteMenuByID">
+        WITH RECURSIVE menus AS (
+            SELECT id
+            FROM system_menu
+            WHERE id = #{menuId}
+            UNION ALL
+            SELECT t.id
+            FROM system_menu t
+                     INNER JOIN menus cte ON t.parent_id = cte.id
+        )
+        DELETE FROM system_menu
+        WHERE id IN (SELECT id FROM menus);
+    </delete>
+    <select id="getMenuList" resultMap="SystemMenuResultMap">
         SELECT
-            id,
-            name,
-            permission,
-            path,
-            parent_id,
-            sort,
-            icon,
-            type,
-            status,
-            visible,
-            create_time,
-            create_user,
-            update_time,
-            update_user
+            <include refid="selectColumnStatement"/>
         FROM
             system_menu
+        <include refid="whereStatement"/>
     </select>
 
-    <select id="getMenuDetail" resultType="com.st.cloud.module.system.pojo.SystemMenuDO">
+    <select id="getMenuDetail" resultMap="SystemMenuResultMap">
         SELECT
-            id,
-            name,
-            permission,
-            path,
-            parent_id,
-            sort,
-            icon,
-            type,
-            status,
-            visible,
-            create_time,
-            create_user,
-            update_time,
-            update_user
+            <include refid="selectColumnStatement"/>
         FROM
             system_menu
         WHERE
             id = #{id}
     </select>
+    <select id="getAdminPermission" resultType="com.st.cloud.module.system.pojo.SystemMenu">
+        select
+            sm.id, sm.parent_id, sm.permission, sm.path, sm.sort, sm.type, sm.name, sm.i18n_tag, COALESCE(sm.icon, '') AS icon
+        from
+            (
+                select
+                    distinct m.menu_id
+                from
+                    system_user_role r
+                        left join system_role_menu m on
+                        r.role_id = m.role_id
+                where
+                    r.user_id = #{userId}
+            ) ur
+                left join system_menu sm on
+                ur.menu_id = sm.id
+        where
+            sm.status = 1
+        order by
+            parent_id,
+            sort;
+    </select>
+    <select id="pageMenuList" resultMap="SystemMenuResultMap">
+        SELECT
+            <include refid="selectColumnStatement"/>
+        FROM
+            system_menu
+        <include refid="whereStatement"/>
+    </select>
+    <select id="getRoleMenuList" resultType="com.st.cloud.module.system.pojo.SystemMenu">
+        SELECT
+            m.*
+        FROM
+            system_role_menu rm
+            left join system_menu m on rm.menu_id = m.id
+        WHERE
+            rm.id = #{roleId}
+
+    </select>
+
+    <sql id="whereStatement">
+        <where>
+            <if test="item.id != null">
+                AND id = #{item.id}
+            </if>
+            <if test="item.name != null and item.name != ''">
+                AND name = #{item.name}
+            </if>
+            <if test="item.permission != null and item.permission != ''">
+                AND permission = #{item.permission}
+            </if>
+            <if test="item.path != null and item.path != ''">
+                AND path = #{item.path}
+            </if>
+            <if test="item.parentId != null">
+                AND parent_id = #{item.parentId}
+            </if>
+        </where>
+    </sql>
+    <sql id="selectColumnStatement">
+            id,
+            name,
+            permission,
+            path,
+            parent_id,
+            sort,
+            icon,
+            i18n_tag,
+            type,
+            status,
+            visible,
+            create_time,
+            create_user,
+            update_time,
+            update_user
+    </sql>
 
 </mapper>

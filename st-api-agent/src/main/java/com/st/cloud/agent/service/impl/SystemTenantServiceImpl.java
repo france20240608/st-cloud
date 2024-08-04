@@ -1,7 +1,7 @@
 package com.st.cloud.agent.service.impl;
 
 import com.st.cloud.agent.service.SystemTenantService;
-import com.st.cloud.common.pojo.CommonResult;
+import com.st.cloud.common.pojo.R;
 import com.st.cloud.module.system.SystemApi;
 import com.st.cloud.module.system.dto.SystemTenantSiteReqDTO;
 import com.st.cloud.module.system.dto.SystemTenantSiteRespDTO;
@@ -17,13 +17,13 @@ public class SystemTenantServiceImpl implements SystemTenantService {
     private SystemApi systemApi;
 
     @Override
-    public CommonResult<String> getTenantId(String domain) {
+    public R<String> getTenantId(String domain) {
         SystemTenantSiteReqDTO dto = new SystemTenantSiteReqDTO();
         dto.setDomain(domain);
-        CommonResult<SystemTenantSiteRespDTO> tenant = systemApi.getTenantId(dto);
+        R<SystemTenantSiteRespDTO> tenant = systemApi.getTenantId(dto);
         if(Objects.nonNull(tenant.getData())) {
-            return CommonResult.success(String.valueOf(tenant.getData().getTenantId()));
+            return R.success(String.valueOf(tenant.getData().getTenantId()));
         }
-        return CommonResult.fail(tenant.getCode(), tenant.getMessage());
+        return R.fail(tenant.getCode(), tenant.getMessage());
     }
 }

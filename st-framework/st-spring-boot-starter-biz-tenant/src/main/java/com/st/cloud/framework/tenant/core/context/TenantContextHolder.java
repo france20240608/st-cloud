@@ -8,6 +8,8 @@ import com.alibaba.ttl.TransmittableThreadLocal;
  * @author Tim
  */
 public class TenantContextHolder {
+
+    public static final Long TENANT_SYSTEM_TENANT_ID = 0L;
     /**
      * 当前租户编号
      */
@@ -25,6 +27,45 @@ public class TenantContextHolder {
      */
     public static Long getTenantId() {
         return TENANT_ID.get();
+    }
+
+    /**
+     * 获得String类型租户编号
+     *
+     * @return 租户编号
+     */
+    public static String getStrTenantId() {
+        return String.valueOf(TENANT_ID.get());
+    }
+
+    /**
+     * 获得String类型租户编号
+     *
+     * @return 租户编号
+     */
+    public static String tenantPrefix() {
+        if(!isIgnore()) {
+            return getStrTenantId() + ":";
+        }
+        return "";
+    }
+
+    /**
+     * 判断是否是系统租户
+     *
+     * @return 是否是系统租户
+     */
+    public static boolean isSystemTenant() {
+        return TENANT_SYSTEM_TENANT_ID.equals(getTenantId());
+    }
+
+    /**
+     * 判断是否是系统租户
+     * @param tenantId 租户ID
+     * @return 是否是系统租户
+     */
+    public static boolean isSystemTenant(Long tenantId) {
+        return TENANT_SYSTEM_TENANT_ID.equals(tenantId);
     }
 
     /**
@@ -54,7 +95,7 @@ public class TenantContextHolder {
      * @return 是否忽略
      */
     public static boolean isIgnore() {
-        return Boolean.TRUE.equals(IGNORE.get());
+        return IGNORE.get();
     }
 
     public static void clear() {

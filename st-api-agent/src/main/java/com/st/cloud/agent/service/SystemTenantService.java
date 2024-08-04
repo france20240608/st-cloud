@@ -1,7 +1,7 @@
 package com.st.cloud.agent.service;
 
-import com.st.cloud.common.pojo.CommonResult;
+import com.st.cloud.common.pojo.R;
 
 public interface SystemTenantService {
-    CommonResult<String> getTenantId(String domain);
+    R<String> getTenantId(String domain);
 }

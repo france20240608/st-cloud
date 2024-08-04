@@ -13,4 +13,7 @@ public class BaseVO implements Serializable {
     private String createUser;
     private LocalDateTime updateTime;
     private String updateUser;
+
+    private Integer pageNum = 1;
+    private Integer pageSize = 20;
 }

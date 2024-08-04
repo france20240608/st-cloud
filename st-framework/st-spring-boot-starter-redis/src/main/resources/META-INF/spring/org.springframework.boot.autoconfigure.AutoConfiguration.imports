@@ -1,2 +1,2 @@
-com.st.cloud.framework.redis.config.JetCacheConfig
 com.st.cloud.framework.redis.config.RedisConfig
+com.st.cloud.framework.redis.config.JetCacheConfig

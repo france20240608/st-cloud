@@ -17,4 +17,5 @@ public class MemberUserVO extends BaseVO {
     private LocalDateTime lastLoginTime;
     private Integer type;
     private Integer level;
+    private String token;
 }

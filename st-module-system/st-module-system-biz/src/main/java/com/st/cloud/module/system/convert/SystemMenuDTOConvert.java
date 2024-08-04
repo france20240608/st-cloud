@@ -1,8 +1,9 @@
 package com.st.cloud.module.system.convert;
 
-import com.st.cloud.common.pojo.PageResult;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.st.cloud.module.system.dto.SystemMenuReqDTO;
 import com.st.cloud.module.system.dto.SystemMenuRespDTO;
-import com.st.cloud.module.system.pojo.SystemMenuDO;
+import com.st.cloud.module.system.pojo.SystemMenu;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -13,9 +14,13 @@ public interface SystemMenuDTOConvert {
 
     SystemMenuDTOConvert INSTANCE = Mappers.getMapper(SystemMenuDTOConvert.class);
 
-    SystemMenuRespDTO convert(SystemMenuDO bean);
+    /********************** D0 -> DTO ***********************/
+    SystemMenuRespDTO convert(SystemMenu bean);
 
-    List<SystemMenuRespDTO> convert(List<SystemMenuDO> list);
+    List<SystemMenuRespDTO> convert(List<SystemMenu> list);
 
-    PageResult<SystemMenuRespDTO> convertPage(PageResult<SystemMenuDO> page);
+    Page<SystemMenuRespDTO> convert(Page<SystemMenu> page);
+
+    /********************** DTO -> D0 ***********************/
+    SystemMenu convert(SystemMenuReqDTO bean);
 }

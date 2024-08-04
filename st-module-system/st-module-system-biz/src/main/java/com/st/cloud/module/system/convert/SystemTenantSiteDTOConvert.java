@@ -1,8 +1,8 @@
 package com.st.cloud.module.system.convert;
 
-import com.st.cloud.common.pojo.PageResult;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.st.cloud.module.system.dto.SystemTenantSiteRespDTO;
-import com.st.cloud.module.system.pojo.SystemTenantSiteDO;
+import com.st.cloud.module.system.pojo.SystemTenantSite;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -13,9 +13,12 @@ public interface SystemTenantSiteDTOConvert {
 
     SystemTenantSiteDTOConvert INSTANCE = Mappers.getMapper(SystemTenantSiteDTOConvert.class);
 
-    SystemTenantSiteRespDTO convert(SystemTenantSiteDO bean);
+    /********************** D0 -> DTO ***********************/
+    SystemTenantSiteRespDTO convert(SystemTenantSite bean);
 
-    List<SystemTenantSiteRespDTO> convert(List<SystemTenantSiteDO> list);
+    List<SystemTenantSiteRespDTO> convert(List<SystemTenantSite> list);
 
-    PageResult<SystemTenantSiteRespDTO> convertPage(PageResult<SystemTenantSiteDO> page);
+    Page<SystemTenantSiteRespDTO> Page(Page<SystemTenantSite> page);
+
+    /********************** DT0 -> DO ***********************/
 }

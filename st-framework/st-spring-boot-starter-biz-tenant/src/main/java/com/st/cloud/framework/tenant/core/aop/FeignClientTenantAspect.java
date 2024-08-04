@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 /**
  * 给feignClient请求头添加TenantId
  *
- * @author 芋道源码
+ * @author Tim
  */
 @Aspect
 @Slf4j

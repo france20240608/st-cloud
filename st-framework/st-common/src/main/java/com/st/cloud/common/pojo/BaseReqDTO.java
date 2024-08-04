@@ -15,7 +15,6 @@ public class BaseReqDTO implements Serializable {
     private LocalDateTime updateTime;
     private String updateUser;
 
-    private String domain;
-    private String version;
-    private String token;
+    private Integer pageNum = 1;
+    private Integer pageSize = 20;
 }

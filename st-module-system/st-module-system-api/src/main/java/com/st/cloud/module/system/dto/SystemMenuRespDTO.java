@@ -14,6 +14,7 @@ public class SystemMenuRespDTO extends BaseRespDTO {
     private Long parentId;
     private Integer sort;
     private String icon;
+    private String i18nTag;
     private Integer type;
     private Integer status;
     private Integer visible;
